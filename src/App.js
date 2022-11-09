@@ -1,4 +1,5 @@
 import "./App.css";
+import "./style.scss"
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 import {
@@ -12,13 +13,17 @@ import LeftBar from "./components/leftbar/LeftBar";
 import RightBar from "./components/rightbar/RightBar";
 import Home from "./components/home/Home";
 import Profile from "./components/profile/Profile";
+import { useContext } from "react";
+import { DarkModeContext } from "./contex/darkModeContextMode";
+import { AuthContext } from "./contex/authContext";
 
 function App() {
-  const currentUser = true;
+  const {currentUser} = useContext(AuthContext);
+  const {darkMode} = useContext(DarkModeContext);
 
   const Layout = () => {
     return (
-      <div>
+      <div className={`theme-${darkMode ? `dark` : `light`}`}>
         <Navbar />
         <div style={{ display: "flex" }}>
           <LeftBar />
