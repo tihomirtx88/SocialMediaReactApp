@@ -5,8 +5,11 @@ import TextsmsOutlinedIcon from "@mui/icons-material/TextsmsOutlined";
 import ShareOutlinedIcon from "@mui/icons-material/ShareOutlined";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import { Link } from "react-router-dom";
+import Comments from "../commenst/Comments";  
+import { useState } from "react";
 
 const Post = ({ post }) => {
+  const [commentOpen, setCommentOpen] = useState(false);
 
     //Temporary
     const liked = false;

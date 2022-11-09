@@ -81,9 +81,15 @@
             &:first-child {
               background-color: blue;
             }
+            &:first-child:hover{
+              background-color: lightskyblue;
+            }
 
             &:last-child {
               background-color: red;
+            }
+            &:last-child:hover{
+              background-color: lightpink;
             }
           }
         }
