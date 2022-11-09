@@ -1,3 +1,5 @@
+import Stories from "../stories/Stories";
+import Posts from "../posts/Posts";
 import "./Home.scss";
 
 
@@ -6,7 +8,8 @@ const Home = () => {
 
     return(
         <div className="home">
-            <h1></h1>
+            <Stories/>
+            <Posts/>
         </div>
     )
 }
