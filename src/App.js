@@ -1,8 +1,9 @@
 import "./App.css";
-import "./style.scss"
+import "./style.scss";
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
-import { createBrowserRouter, Navigate, Outlet, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, Navigate, Outlet, RouterProvider,} from "react-router-dom";
+import { QueryClientProvider, QueryClient, useQuery,} from "@tanstack/react-query";
 import Navbar from "./components/navbar/Navbar";
 import LeftBar from "./components/leftbar/LeftBar";
 import RightBar from "./components/rightbar/RightBar";
@@ -13,21 +14,24 @@ import { DarkModeContext } from "./contex/darkModeContextMode";
 import { AuthContext } from "./contex/authContext";
 
 function App() {
-  const {currentUser} = useContext(AuthContext);
-  const {darkMode} = useContext(DarkModeContext);
+  const { currentUser } = useContext(AuthContext);
+  const { darkMode } = useContext(DarkModeContext);
+  const queryClient = new QueryClient();
 
   const Layout = () => {
     return (
-      <div className={`theme-${darkMode ? `dark` : `light`}`}>
-        <Navbar />
-        <div style={{ display: "flex" }}>
-          <LeftBar />
-          <div style={{flex: 6}}>
-            <Outlet />
+      <QueryClientProvider client={queryClient}>
+        <div className={`theme-${darkMode ? `dark` : `light`}`}>
+          <Navbar />
+          <div style={{ display: "flex" }}>
+            <LeftBar />
+            <div style={{ flex: 6 }}>
+              <Outlet />
+            </div>
+            <RightBar />
           </div>
-          <RightBar />
         </div>
-      </div>
+      </QueryClientProvider>
     );
   };
 
