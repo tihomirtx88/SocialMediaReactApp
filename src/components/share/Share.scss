@@ -83,13 +83,17 @@
           }
         }
         .right {
-          button {
+          .share-button {
             border: none;
             padding: 5px;
             color: white;
             cursor: pointer;
-            background-color: #5271ff;
+            background-color: #d752ff;
             border-radius: 3px;
+          }
+
+          .share-button:hover{
+            background: red;
           }
         }
       }
