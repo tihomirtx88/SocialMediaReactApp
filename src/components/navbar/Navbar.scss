@@ -19,6 +19,10 @@
       align-items: center;
       gap: 30px;
 
+      .HomeOutlinedIcon{
+        cursor: pointer;
+      }
+
       span {
         font-size: 20px;
         font-weight: bold;
@@ -64,6 +68,17 @@
         align-items: center;
         gap: 10px;
         font-weight: 500;
+
+        .logout-button{
+          border: none;
+          border-radius: 10px;
+          padding: 7px;
+          cursor: pointer;
+        }
+
+        .logout-button:hover{
+          background-color: bisque;
+        }
 
         @include tablet{
           display: none;

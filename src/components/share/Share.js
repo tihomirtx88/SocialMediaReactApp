@@ -54,7 +54,7 @@ const Share = () => {
       <div className="container">
         <div className="top">
           <div className="left">
-            <img src={"/upload/" + currentUser.profilePicutre} alt="" />
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLffDGdF75him1no3GFoc-WLI5sVPHFblkXg&usqp=CAU" alt="" />
             <input
               type="text"
               placeholder={`What's on your mind ${currentUser.name}?`}
