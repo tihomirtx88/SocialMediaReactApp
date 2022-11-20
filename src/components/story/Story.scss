@@ -1,0 +1,36 @@
+.story {
+  flex: 1;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+
+  .icon-delete {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    width: 66px;
+    height: 48px;
+
+    .button-delete-story {
+      font-size: 20px;
+      position: absolute;
+      bottom: 16px;
+      left: -31px;
+      background: transparent;
+    }
+
+    span {
+      font-size: 35px;
+      position: relative;
+      bottom: 1px;
+      left: 22px;
+      text-align: center;
+      height: 30px;
+      padding-top: 0;
+    }
+  }
+}

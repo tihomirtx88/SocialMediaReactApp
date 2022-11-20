@@ -6,12 +6,13 @@
   height: 250px;
   margin-bottom: 30px;
 
-  @include mobile{
+  @include mobile {
     height: 50px;
+    margin-bottom: 0;
     justify-content: space-between;
   }
 
-  @include tablet{
+  @include tablet {
     height: 150px;
     gap: 20px;
   }
@@ -22,12 +23,39 @@
     overflow: hidden;
     position: relative;
 
-    @include mobile{
+    .label-for-story {
+      height: 50px;
+      position: absolute;
+      bottom: 16px;
+      left: 54px;
+      width: 67px;
+
+      .item {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        
+        span{
+          justify-content: center;
+          text-align: center;
+          border-radius: 10px;
+        }
+
+        span:hover{
+           background-color: lightsteelblue;
+        }
+      }
+    }
+
+    @include mobile {
       flex: none;
       width: 50px;
       height: 50px;
       border-radius: 50%;
-      object-fit: cover;
     }
 
     img {
@@ -41,8 +69,7 @@
       left: 10px;
       color: white;
       font-weight: 500;
-
-      @include mobile{
+      @include mobile {
         display: none;
       }
     }
@@ -63,10 +90,10 @@
       align-items: center;
       justify-content: center;
 
-      @include mobile{
-        top: 0;
+      @include mobile {
         left: 0;
         right: 0;
+        top: 0;
         bottom: 0;
         margin: auto;
       }
