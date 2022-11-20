@@ -10,8 +10,8 @@ import { makeRequest } from "../../axios";
 const Share = () => {
   const [file, setFile] = useState(null);
   const [description, setDescription] = useState("");
+
   const { currentUser } = useContext(AuthContext);
-  const queryClient = useQueryClient();
 
   const upload = async () => {
     try {
@@ -25,6 +25,8 @@ const Share = () => {
       console.log(err);
     }
   }
+
+  const queryClient = useQueryClient();
 
   const mutation = useMutation(
     (newPost) => {

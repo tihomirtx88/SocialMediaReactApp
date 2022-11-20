@@ -5,18 +5,15 @@ import { makeRequest } from "../../axios";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 const Update = ({ setOpenUpdate, user }) => {
-  const { cover, setCover } = useState(null);
-  const { profile, setProfile } = useState(null);
-  const { texts, setTexts } = useState({
+  const [ cover, setCover ] = useState(null);
+  const [ profile, setProfile ] = useState(null);
+  const [ texts, setTexts ] = useState({
     email: user.email,
     password: user.password,
     name: user.name,
     city: user.city,
     website: user.website,
   });
-
-  console.log(texts,`tova e texts`);
-  console.log(user, `tova e ot user`);
 
   const upload = async (file) => {
     try {

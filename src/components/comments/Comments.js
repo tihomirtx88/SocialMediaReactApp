@@ -3,7 +3,7 @@ import "./Comments.scss";
 import { AuthContext } from "../../contex/authContext";
 import { makeRequest } from "../../axios";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import moment from "moment";
+import Comment from "../comment/Comment";
 
 const Comments = ({ postId }) => {
   const [description, setDescription] = useState("");
@@ -29,38 +29,30 @@ const Comments = ({ postId }) => {
     }
   );
 
-  const handleClick = async(e) => {
-     e.preventDefault();
-     mutation.mutate({description, postId});
-     setDescription("");
-  }
+  const handleClick = async (e) => {
+    e.preventDefault();
+    mutation.mutate({ description, postId });
+    setDescription("");
+  };
 
   return (
     <div className="comments">
       <div className="write">
         <img src={"/upload/" + currentUser.profilePicture} alt="" />
-        <input 
-        type="text" 
-        placeholder="write a comment"
-        value={description} 
-        onChange={(e) => setDescription(e.target.value)}/>
+        <input
+          type="text"
+          placeholder="write a comment"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+        />
 
         <button onClick={handleClick}>Send</button>
       </div>
-      {err 
-      ? "Something went wrong"
-      : isLoading 
-      ? "Loading..." 
-      : data.map((comment) => (
-        <div className="comment" key={comment.id}>
-          <img src={"/upload/" + comment.profilePicture} alt="" />
-          <div className="info">
-            <span>{comment.name}</span>
-            <p>{comment.description}</p>
-          </div>
-          <span className="date">{moment(comment.createdAt).fromNow()}</span>
-        </div>
-      ))}
+      {err
+        ? "Something went wrong"
+        : isLoading
+        ? "Loading..."
+        : data.map((comment) => <Comment comment={comment} key={comment.id} />)}
     </div>
   );
 };

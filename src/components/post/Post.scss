@@ -9,6 +9,18 @@
     background-color: themed("bg");
     color: themed("textColor");
 
+    .button-delete-post{
+      border-radius: 5px;
+      background-color: red;
+      border: none;
+      height: 20px;
+      color: white;
+    }
+
+    .button-delete-post:hover{
+      background-color: lightgreen;
+    }
+
     .container {
       padding: 20px;
       .user {
