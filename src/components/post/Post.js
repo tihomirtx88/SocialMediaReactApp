@@ -16,7 +16,9 @@ const Post = ({ post }) => {
   const [commentOpen, setCommentOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const { currentUser } = useContext(AuthContext);
+  // const [liked, setLiked] = useState(false);
+
+  const { currentUser, socket } = useContext(AuthContext);
 
   const { isLoading, err, data } = useQuery(["likes", post.id], () =>
     makeRequest.get("/likes?postId=" + post.id).then((res) => {
@@ -50,10 +52,21 @@ const Post = ({ post }) => {
       },
     }
   );
-
-  const handleLike = () => {
+  // -----Likes and sockets 
+ 
+  const handleLike = (type) => {
     mutation.mutate(data.includes(currentUser.id));
+    // type === 1 && setLiked(true);
+    socket.emit("sendNotifications", {
+      // sent event sendNotification on server 
+      senderName: currentUser.username,
+      receiverName: post.name,
+      type,
+    });
   };
+
+  
+  console.log(post.name, `post name from post`);
 
   const handleDelete = () => {
     deleteMutation.mutate(post.id);
@@ -94,11 +107,11 @@ const Post = ({ post }) => {
             : data.includes(currentUser.id) ? (
               <FavoriteOutlinedIcon
                 style={{ color: "red" }}
-                onClick={handleLike}
+                onClick={() => handleLike(1)}
               />
             ) 
             : (
-              <FavoriteBorderOutlinedIcon onClick={handleLike} /> )}
+              <FavoriteBorderOutlinedIcon onClick={() => handleLike(1)} /> )}
             {data?.length} Likes
           </div>
           <div className="item" onClick={() => setCommentOpen(!commentOpen)}>

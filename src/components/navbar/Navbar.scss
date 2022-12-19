@@ -19,7 +19,7 @@
       align-items: center;
       gap: 30px;
 
-      .HomeOutlinedIcon{
+      .HomeOutlinedIcon {
         cursor: pointer;
       }
 
@@ -43,14 +43,26 @@
           background-color: transparent;
           color: themed("textColor");
 
-          @include mobile{
+          @include mobile {
             display: none;
           }
 
-          @include tablet{
+          @include tablet {
             width: 200px;
           }
         }
+      }
+    }
+
+    .notifications {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex: 0.7;
+      height: 30px;
+
+      .notification{
+        
       }
     }
 
@@ -59,7 +71,7 @@
       align-items: center;
       gap: 20px;
 
-      @include mobile{
+      @include mobile {
         display: none;
       }
 
@@ -69,18 +81,18 @@
         gap: 10px;
         font-weight: 500;
 
-        .logout-button{
+        .logout-button {
           border: none;
           border-radius: 10px;
           padding: 7px;
           cursor: pointer;
         }
 
-        .logout-button:hover{
+        .logout-button:hover {
           background-color: bisque;
         }
 
-        @include tablet{
+        @include tablet {
           display: none;
         }
 
@@ -91,7 +103,8 @@
           object-fit: cover;
         }
 
-        span {}
+        span {
+        }
       }
     }
   }
