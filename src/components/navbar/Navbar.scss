@@ -61,8 +61,14 @@
       flex: 0.7;
       height: 30px;
 
-      .notification{
-        
+      .nButton{
+        border-radius: 6px;
+        border: none;
+        color: cadetblue;
+        cursor: pointer;
+      }
+      .nButton:hover{
+        color: chocolate;
       }
     }
 

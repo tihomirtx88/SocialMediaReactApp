@@ -28,14 +28,9 @@ const Navbar = () => {
   useEffect(() => {
     if (!socket) return
     socket.on("getNotification", (data) => {
-      console.log(data, `from navbar data`);
-      // take event getNotification from server 
       setNotifications((prev) => [...prev, data]);
     });
   }, [socket]);
-
-  console.log(currentUser.username, `from navbar current user`);
-  console.log(notifications, `notifications from navbar `);
 
   const displayNotification = ({ senderName, type }) => {
     let action;
